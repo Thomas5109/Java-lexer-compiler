@@ -8,25 +8,20 @@ Compilador que reproduz o a linguagem Java
         ;
         
     bloco_classe
-        : 'public' 'class' ID
-        | '{'
-        |  bloco_main+
-        | '}'
-        ;
+        : 'public' 'class' ID '{' bloco_main+ '}' ;
     
     bloco_main
-        : 'public static void main' '(' 'String[]' 'args' ')'
-        | '{'
-        | comando+
-        | '}'
+        : 'public' 'static' 'void' 'main' '(' 'String[]' 'args' ')'
+        '{' comando+ '}'
         ;
     
     //COMANDO GERAL PARA AS FUNÇÕES
     comando
         : declaracao
+        | atribuicao
         ;
     
-    //---DECLARAÇÃO---
+    //---DECLARAÇÃO---//
     declaracao
         : de_variavel
         | de_inteiro
@@ -52,10 +47,36 @@ Compilador que reproduz o a linguagem Java
         | 'String'
         ;
     
+    //---ATRIBUIÇÃO---//
+    atribuicao
+        : ID '=' valor ';' ;
+    
+    
+    //---VALOR E EXPRESSÕES---//
+    valor
+        : NUMERO_INT
+        | NUMERO_REAL
+        | STRING
+        ;
+    
+    expressao 
+        : termo (('+'|'-') termo)*
+        ;
+        
+    termo
+        : fator (('*'|'/') fator)*
+        ;
+        
+    fator
+        : ID
+        | valor
+        | '('expressao')'
+        ;
+    
     // --- REGRAS LÉXICAS (TOKENS) ---
     
     ID          : [a-zA-Z] [a-zA-Z0-9]* ;
     NUMERO_INT  : [0-9]+ ;
     NUMERO_REAL : [0-9]+ '.' [0-9]+ ;
     STRING      : '"' .*? '"' ;
-    WS          : [ \t\r\n]+ -> skip ;
+    WS          : [ \t\r\n]+ -> skip ; 
