@@ -554,8 +554,6 @@ def main(argv):
                 print("Análise Semântica CONCLUÍDA. Nenhum erro encontrado.")
                 sucesso_semantico = True  # SUCESSO!
                 # Se a semântica passou, continue para gerar a árvore
-                # (O resto do seu código para gerar DOT e PNG vai aqui...)
-                # ...
                 
             except SemanticError as e:
                 print("\n--- ERRO SEMÂNTICO ---")
