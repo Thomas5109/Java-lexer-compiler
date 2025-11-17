@@ -1,0 +1,6 @@
+public class TesteFor {
+        public static void main(String[] args) {
+                    int x;
+             x = 1 +1;
+            }
+}

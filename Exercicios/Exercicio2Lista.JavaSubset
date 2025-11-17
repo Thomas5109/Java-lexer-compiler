@@ -1,0 +1,43 @@
+public class TrianguloPascal {
+    public static void main(String[] args) {
+        int n;
+        System.out.println("Digite o número de linhas:");
+        n = sc.nextInt();
+
+        if (n > 0) {
+            // Cria um array para a linha anterior
+            // (Vamos usar 'linha' para guardar a linha ATUAL)
+            int[] linha;
+            linha = new int[n];
+            
+            int i;
+            int j;
+            i = 0;
+            
+            while (i < n) {
+                // 1. Calcular a nova linha
+                j = i;
+                while (j > 0) {
+                    linha[j] = linha[j] + linha[j-1];
+                    j = j - 1;
+                }
+                
+                // 2. O primeiro e último elemento são sempre 1
+                linha[i] = 1;
+                
+                // 3. Imprimir a linha atual
+                j = 0;
+                while (j <= i) {
+                    System.out.print(linha[j]);
+                    System.out.print(" ");
+                    j = j + 1;
+                }
+                System.out.println(""); // Pula para a próxima linha
+                
+                i = i + 1;
+            }
+        } else {
+            System.out.println("Número inválido.");
+        }
+    }
+}
