@@ -1,0 +1,9 @@
+public class TesteTipo {
+    public static void main(String[] args) {
+        int a;
+        String b;
+
+        // Erro: int = String
+        a = "ola"; 
+    }
+}

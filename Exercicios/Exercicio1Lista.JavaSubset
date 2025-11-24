@@ -1,0 +1,42 @@
+public class ClassificaTriangulo {
+    public static void main(String[] args) {
+        float a;
+        float b;
+        float c;
+        
+        // Objetivo: Ler três valores decimais
+        // Na sua linguagem, isso é feito com 'sc.nextFloat()'
+        a = sc.nextFloat();
+        b = sc.nextFloat();
+        c = sc.nextFloat();
+
+        // Critério: Casos extremos (valores negativos/zero)
+        if (a <= 0 || b <= 0 || c <= 0) {
+            System.out.println("Medidas inválidas");
+        } else {
+            // Critério: Verificar se formam um triângulo válido
+            // A soma de dois lados deve ser maior que o terceiro
+            if (a + b > c && a + c > b && b + c > a) {
+                
+                // Se chegou aqui, o triângulo é válido. Agora, classificar.
+                
+                // 1. Equilátero (a == b == c)
+                if (a == b && b == c) {
+                    System.out.println("Triângulo equilátero válido");
+                } 
+                // 2. Isósceles (apenas dois lados iguais)
+                else if (a == b || a == c || b == c) {
+                    System.out.println("Triângulo isósceles válido");
+                }
+                // 3. Escaleno (todos diferentes)
+                else {
+                    System.out.println("Triângulo escaleno válido");
+                }
+                
+            } else {
+                // Não passou na verificação de validade
+                System.out.println("Medidas inválidas");
+            }
+        }
+    }
+}

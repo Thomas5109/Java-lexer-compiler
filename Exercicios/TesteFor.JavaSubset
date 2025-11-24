@@ -1,0 +1,20 @@
+public class TesteFor {
+
+    public static void main(String[] args) {
+        
+        System.out.println("Inicio do teste FOR");
+
+        // Este 'for' usa () e {}
+        for (int i = 0; i < 10; i = i + 1) {
+            
+            System.out.println(i);
+
+            // Um 'if' aninhado para testar mais
+            if (i == 5) {
+                System.out.println("Chegou no 5!");
+            }
+        }
+
+        System.out.println("Fim do teste FOR");
+    }
+}
